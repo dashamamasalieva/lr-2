@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+{% block content %}
+<div class="zalogo"><h1>Главная</h1></div>
+<div class="container_form">
+    <form method="get" class="form-filter">
+        <div>
+            {{ staf.form.as_p }}
+            <button type="submit" class="fil">Фильтровать</button>
+        </div>
+    </form>
+</div>
+<h2>Прайс-лист</h2>
+<div class="table">
+{% if staf %}
+<table cellspacing="0">
+    <tr>
+        <th>№</th>
+        <th>Наименование услуги</th>
+        <th>Стоимость услуги</th>
+        <th>Действия</th>
+    </tr>
+
+    {% for elem in staf.qs %}
+    <tr>
+        <td>{{ elem.ind }}</td>
+        <td>{{ elem.name }}</td>
+        <td>{{ elem.price }}</td>
+        <td class="button"><a href="{% url 'task-delete' elem.id %}" class="delete">Удалить</a>
+            <a href="{% url 'task-update' elem.id %}" class="edit">Редактировать</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>У нас нет записей</p>
+{% endif %}
+</div>
+{% endblock %}

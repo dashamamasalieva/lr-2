@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles/st.css' %}">
+</head>
+<body>
+     <div class="container">
+        <div class="header">
+            <a class="header__logo" href=""><img src="{% static 'img/image2.PNG' %}" alt="img"></a>
+            <a class="header__link" href="/">Главная</a>
+            <a class="header__link" href="/order">Услуги</a>
+            <a class="header__link" href="/otziv">Отзывы</a>
+            <a class="header__lonk" href="/add"><img src="{% static 'img/image1.png' %}" alt="img">Добавить</a>
+        </div>
+     </div>
+{% block content %}{% endblock %}
+</body>
+</html>

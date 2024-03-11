@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Добавить услугу
+{% endblock %}
+
+{% block content %}
+    <div class="zalogo"><h1>Добавить услугу</h1></div>
+    <form method="post">
+        <h4>Новая услуга</h4>
+        <div class="form">
+        {% csrf_token %}
+        {{ form.ind }}<br>
+        {{ form.name }}<br>
+        {{ form.price }}<br>
+        </div>
+      <button type="submit">Сохранить</button>
+      <span>{{ error }}</span>
+
+    </form>
+{% endblock %}
